@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton fabAddTask;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         initUI();
         initListeners();
     }
+
     private void initListeners() {
         fabAddTask.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,15 +122,12 @@ public class MainActivity extends AppCompatActivity {
                 selectedCategories.add(category);
             }
         }
-        List<Task> newTasks = new ArrayList<>();
+        ArrayList<Task> newTasks = new ArrayList<>();
         for (Task task : tasks) {
             if (selectedCategories.contains(task.getCategory())) {
                 newTasks.add(task);
             }
         }
-        tasksAdapter.updateTasks(newTasks);
         tasksAdapter.notifyDataSetChanged();
     }
-
-
 }
